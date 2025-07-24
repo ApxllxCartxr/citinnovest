@@ -1,0 +1,42 @@
+
+# Node modules
+node_modules/
+
+# Vite build output
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local env files
+.env
+.env.*.local
+.env.local
+
+# Vercel & deployment
+.vercel/
+.output/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# Dependency caching
+.cache/
+.pnpm-store/
+
+# Test coverage
+coverage/
+
+# Optional: local development exports
+*.local.js
+*.local.ts
+*.local.json
