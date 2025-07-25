@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Clock, MapPin, User, X } from "lucide-react";
+import { useNavigate } from "react-router";
 
 // Types
 interface EventType {
@@ -8,7 +9,7 @@ interface EventType {
   formLink: string;
   speaker?: string;
   time?: string;
-};
+}
 
 type EventFormType = {
   [key: string]: EventType[];
@@ -26,30 +27,30 @@ const EventModal: React.FC<EventModalProps> = ({ isOpen, onClose, day }) => {
 
   // Google Form links for each event
   const eventForms: EventFormType = {
-    'Day 1': [
-      { 
-        title: 'Ideathon',
-        venue: 'Main Auditorium',
-        formLink: 'https://forms.gle/tkeKPGQ4VkHJBnjBA' // Replace with actual Google Form link
+    "Day 1": [
+      {
+        title: "Ideathon",
+        venue: "Main Auditorium",
+        formLink: "https://forms.gle/tkeKPGQ4VkHJBnjBA", // Replace with actual Google Form link
       },
-      { 
-        title: 'Project Competition',
-        venue: 'Innovation Theater',
-        formLink: 'https://forms.gle/tkeKPGQ4VkHJBnjBA' // Replace with actual Google Form link
-      }
+      {
+        title: "Project Competition",
+        venue: "Innovation Theater",
+        formLink: "https://forms.gle/tkeKPGQ4VkHJBnjBA", // Replace with actual Google Form link
+      },
     ],
-    'Day 3': [
-      { 
-        title: 'Product Showcase',
-        venue: 'Tech Theater',
-        formLink: 'https://forms.gle/example3' // Replace with actual Google Form link
+    "Day 3": [
+      {
+        title: "Product Showcase",
+        venue: "Tech Theater",
+        formLink: "https://forms.gle/example3", // Replace with actual Google Form link
       },
-      { 
-        title: 'Demo day',
-        venue: 'Sustainability Hub',
-        formLink: 'https://forms.gle/zFXDyKMSEraLkDqc8' // Replace with actual Google Form link
-      }
-    ]
+      {
+        title: "Demo day",
+        venue: "Sustainability Hub",
+        formLink: "https://forms.gle/zFXDyKMSEraLkDqc8", // Replace with actual Google Form link
+      },
+    ],
   };
 
   return (
@@ -57,19 +58,26 @@ const EventModal: React.FC<EventModalProps> = ({ isOpen, onClose, day }) => {
       <div className="bg-white rounded-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
         <div className="p-6">
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-2xl font-bold text-gray-900">Register for {day} Events</h3>
-            <button 
+            <h3 className="text-2xl font-bold text-gray-900">
+              Register for {day} Events
+            </h3>
+            <button
               onClick={onClose}
               className="text-gray-400 hover:text-gray-500"
             >
               <X className="h-6 w-6" />
             </button>
           </div>
-          
+
           <div className="space-y-4">
             {eventForms[day]?.map((event: EventType, index: number) => (
-              <div key={index} className="border border-gray-200 rounded-lg p-4">
-                <h4 className="font-semibold text-lg text-gray-900">{event.title}</h4>
+              <div
+                key={index}
+                className="border border-gray-200 rounded-lg p-4"
+              >
+                <h4 className="font-semibold text-lg text-gray-900">
+                  {event.title}
+                </h4>
                 <p className="text-gray-600 flex items-center mt-1">
                   <MapPin className="h-4 w-4 mr-2" /> {event.venue}
                 </p>
@@ -84,7 +92,7 @@ const EventModal: React.FC<EventModalProps> = ({ isOpen, onClose, day }) => {
               </div>
             ))}
           </div>
-          
+
           <div className="mt-6 flex justify-end">
             <button
               type="button"
@@ -102,7 +110,8 @@ const EventModal: React.FC<EventModalProps> = ({ isOpen, onClose, day }) => {
 
 const Schedule = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedDay, setSelectedDay] = useState('');
+  const navigate = useNavigate();
+  const [selectedDay, setSelectedDay] = useState("");
   const days = [
     {
       date: "August 18, 2025",
@@ -192,9 +201,9 @@ const Schedule = () => {
   ];
 
   const handleKnowMore = (day: string) => {
-    if (day === 'Day 2') {
-      window.location.href = '/innovesthack';
-    } else if (day === 'Day 1' || day === 'Day 3') {
+    if (day === "Day 2") {
+      navigate("/innovesthack");
+    } else if (day === "Day 1" || day === "Day 3") {
       setSelectedDay(day);
       setModalOpen(true);
     }
@@ -202,7 +211,7 @@ const Schedule = () => {
 
   const closeModal = () => {
     setModalOpen(false);
-    setSelectedDay('');
+    setSelectedDay("");
   };
 
   return (
@@ -228,16 +237,18 @@ const Schedule = () => {
                 <h3 className="text-2xl font-bold mb-2">{day.day}</h3>
                 <p className="text-blue-100 mb-1">{day.date}</p>
                 <p className="text-orange-300 font-medium">{day.theme}</p>
-                {(day.day === 'Day 1' || day.day === 'Day 2' || day.day === 'Day 3') && (
+                {(day.day === "Day 1" ||
+                  day.day === "Day 2" ||
+                  day.day === "Day 3") && (
                   <button
                     onClick={() => handleKnowMore(day.day)}
                     className={`absolute top-12 right-4 px-6 py-4 rounded-lg font-medium text-sm transition-colors duration-200 shadow-sm ${
-                      day.day === 'Day 2' 
-                        ? 'bg-white text-blue-600 hover:bg-blue-50' 
-                        : 'bg-orange-500 text-white hover:bg-orange-600'
+                      day.day === "Day 2"
+                        ? "bg-white text-blue-600 hover:bg-blue-50"
+                        : "bg-orange-500 text-white hover:bg-orange-600"
                     }`}
                   >
-                    {day.day === 'Day 2' ? 'Know More' : 'Register'}
+                    {day.day === "Day 2" ? "Know More" : "Register"}
                   </button>
                 )}
               </div>
@@ -272,13 +283,9 @@ const Schedule = () => {
           ))}
         </div>
       </div>
-      
+
       {/* Registration Modal */}
-      <EventModal 
-        isOpen={modalOpen} 
-        onClose={closeModal} 
-        day={selectedDay} 
-      />
+      <EventModal isOpen={modalOpen} onClose={closeModal} day={selectedDay} />
     </section>
   );
 };
