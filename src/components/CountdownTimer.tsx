@@ -16,9 +16,8 @@ const CountdownTimer = () => {
   });
 
   useEffect(() => {
-    // set timer function
-    const now = new Date();
-    const targetDate = new Date(now.getTime() + (1 * 60 * 60 * 1000)); // setting time
+    // Set target date to August 18th, 2025 at 8:00 AM
+    const targetDate = new Date('2025-08-18T08:00:00');
 
     const timer = setInterval(() => {
       const currentTime = new Date().getTime();
@@ -69,9 +68,10 @@ const CountdownTimer = () => {
       </div>
       <div className="text-center mt-4">
         <p className="text-white/80 text-sm">
-          Countdown: 1 Hour
+          Showdown: 18th August 2025
         </p>
       </div>
+    
     </div>
   );
 };

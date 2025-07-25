@@ -1,23 +1,14 @@
 import React from "react";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Events from "./components/Events";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import Gallery from "./components/Gallery";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage.tsx";
+import InnovestHackPage from "./pages/InnovestHackPage.tsx";
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <Hero />
-      <About />
-      <Events />
-      <Gallery />
-      <Contact />
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/innovesthack" element={<InnovestHackPage />} />
+    </Routes>
   );
 }
 
