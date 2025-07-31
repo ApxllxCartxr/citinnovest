@@ -82,10 +82,10 @@ const About = () => {
             </p>
 
             {/* Key Statistics */}
-            <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-6">
               <div className="text-center p-4 bg-white rounded-lg shadow-sm">
                 <div className="text-2xl font-bold text-blue-900 mb-1">
-                  ₹10Cr+
+                  ₹20L
                 </div>
                 <div className="text-sm text-gray-600">
                   Total Funding Facilitated
@@ -100,7 +100,7 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </div>
+
 
           <div className="relative">
             <div className="bg-gradient-to-br from-blue-900 to-indigo-800 rounded-2xl p-8 text-white">

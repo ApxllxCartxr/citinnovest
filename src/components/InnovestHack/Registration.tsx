@@ -42,7 +42,7 @@ const Registration = () => {
 
   const handleRegister = () => {
     window.open(
-      "https://unstop.com/o/ZayQuGz?lb=djZ6LQr&utm_medium=Share&utm_source=shortUrl",
+      "https://docs.google.com/forms/d/e/1FAIpQLSdtrK7hqgUEGfDnP_03PKnShTZH05C5tLzmvIJ53F3pMFhmuw/viewform",
       "_blank"
     );
   };

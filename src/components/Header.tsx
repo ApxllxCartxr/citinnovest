@@ -5,6 +5,7 @@ import citLogo from '../img/CIT Logo Yellow-Autonomous(1).png';
 import citbifLogo from '../img/CITBIF logo Final-02 (1).png';
 import innovest from '../img/innovest.png';
 import citil from '../img/CITIL.jpeg';
+import Gallery_Header from './GalleryHeader';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -94,7 +95,7 @@ const Header = () => {
   const navItems = [
     { name: 'Home', href: '/' },
     { name: 'Events', href: '/#schedule', hasDropdown: true },
-
+    
   ];
 
   return (
@@ -117,7 +118,7 @@ const Header = () => {
                 <img 
                   src={citLogo} 
                   alt="CIT Logo" 
-                  className="h-full w-auto object-contain"
+                  className="h-14 w-auto object-contain"
                 />
               </a>
             </div>
@@ -128,12 +129,12 @@ const Header = () => {
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="h-10 w-auto flex items-center">
+            <div className="h-18 w-auto flex items-center">
               <a 
                 href="http://www.citinnovationlabs.in/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="h-10 flex items-center"
+                className="h-11 flex items-center"
               >
                 <img 
                   src={citil} 
@@ -142,11 +143,11 @@ const Header = () => {
                 />
               </a>
             </div>
-            <div className="h-10 w-auto flex items-center">
+            <div className="h-16 w-auto flex items-center">
               <img 
                 src={innovest} 
                 alt="Innovest Logo" 
-                className="h-10 w-auto object-contain"
+                className="h-14 w-61 object-contain"
               />
             </div>
           </div>
@@ -205,6 +206,13 @@ const Header = () => {
             >
               DeepSprint 2025
             </Link>
+            {/* DeepSprint Button */}
+            {/* <Link
+              to="/gallery_header"
+              className="ml-2 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-5 py-2.5 rounded-md text-sm font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 whitespace-nowrap"
+            >
+              Gallery of 2025
+            </Link> */}
           </div>
 
           {/* Mobile menu button */}
@@ -272,6 +280,15 @@ const Header = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   DeepSprint 2025
+                </Link>
+              </div>
+              <div className="pt-2 mt-2 border-t border-gray-200">
+                <Link
+                  to="/#gallery_header"
+                  className="block w-full text-center bg-gradient-to-r from-blue-600 to-blue-800 text-white px-4 py-2.5 rounded-md text-sm font-medium shadow-sm"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Gallery of 2024
                 </Link>
               </div>
             </div>

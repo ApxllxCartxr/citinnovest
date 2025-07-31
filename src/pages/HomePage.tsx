@@ -5,7 +5,7 @@ import Events from "../components/Events";
 import Domains from "../components/Domains";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
-import Gallery from "../components/Gallery";
+import TiledGallery from "../components/TiledGallery";
 
 const HomePage = () => {
   return (
@@ -14,7 +14,7 @@ const HomePage = () => {
       <Hero />
       <About />
       <Events />
-      <Gallery />
+      <TiledGallery />
       <Contact />
       <Footer />
     </div>

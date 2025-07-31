@@ -4,7 +4,10 @@ import { Target, Lightbulb, Users, Award, Zap } from "lucide-react";
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [visibleFeatures, setVisibleFeatures] = useState<boolean[]>([]);
-  const [animatedStats, setAnimatedStats] = useState({ funding: 0, partnerships: 0 });
+  const [animatedStats, setAnimatedStats] = useState({
+    funding: 0,
+    partnerships: 0,
+  });
   const aboutRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
@@ -41,7 +44,12 @@ const About = () => {
   ];
 
   // Animated counter for statistics
-  const animateValue = (start: number, end: number, duration: number, callback: (value: number) => void) => {
+  const animateValue = (
+    start: number,
+    end: number,
+    duration: number,
+    callback: (value: number) => void,
+  ) => {
     let startTimestamp: number | null = null;
     const step = (timestamp: number) => {
       if (!startTimestamp) startTimestamp = timestamp;
@@ -71,7 +79,7 @@ const About = () => {
           if (entry.target === statsRef.current && entry.isIntersecting) {
             // Animate statistics
             setTimeout(() => {
-              animateValue(0, 10, 2000, (value) => {
+              animateValue(0, 20, 2000, (value) => {
                 setAnimatedStats((prev) => ({ ...prev, funding: value }));
               });
             }, 500);
@@ -83,7 +91,7 @@ const About = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (aboutRef.current) observer.observe(aboutRef.current);
@@ -99,20 +107,9 @@ const About = () => {
         {/* Section Header */}
         {/* cit chenbnai about */}
         <div ref={aboutRef} className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            About{" "}
-            <span className="text-orange-500">
-              CITBIF
-            </span>
-          </h2>
-          <div className="w-24 h-1 bg-orange-500 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Chennai Institute of Technology Business Incubation Forum is a dedicated technology business incubator 
-            based in Chennai. Focused on fostering innovation and entrepreneurship, CITBIF supports startups through 
-            mentorship, funding facilitation, prototyping facilities, and industry connections CITBIF is committed 
-            to nurturing creative ideas and empowering entrepreneurs to transform their innovations into impactful, 
-            sustainable businesses.
-          </p>
+          
+          
+          
         </div>
         {/* about citbif */}
         <div className="text-center mb-16">
@@ -123,13 +120,15 @@ const About = () => {
             </span>
           </h2>
           <div className="w-24 h-1 bg-orange-500 mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Chennai Institute of Technology was established with the objective of providing quality technical education
-             with adequate industrial exposure than any other engineering colleges in Chennai. 
-             Apart from interactive classroom scenario, periodic guest lectures by experts from industries and 
-             academic background provides thirst to the students to learn and to prepare for the ready-to-serve 
-             industrial requirements with uncompromised professional ethics.
-            </p>
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Chennai Institute of Technology was established with the objective
+            of providing quality technical education with adequate industrial
+            exposure than any other engineering colleges in Chennai. Apart from
+            interactive classroom scenario, periodic guest lectures by experts
+            from industries and academic background provides thirst to the
+            students to learn and to prepare for the ready-to-serve industrial
+            requirements with uncompromised professional ethics.
+          </p>
         </div>
 
         {/* Main Content */}
@@ -145,21 +144,24 @@ const About = () => {
               <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-orange-500 to-red-500 transform scale-y-0 animate-in slide-in-from-top duration-1000 delay-700 origin-top"></div>
             </h3>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed animate-in slide-in-from-left duration-800 delay-700 hover:text-gray-800 transition-colors duration-300">
-              Since its inception, Innovest has been at the forefront of fostering innovation and facilitating
-              meaningful connections between entrepreneurs and investors. Our summit serves as a catalyst for
-              groundbreaking collaborations that drive technological advancement and economic growth.
+              Since its inception, Innovest has been at the forefront of
+              fostering innovation and facilitating meaningful connections
+              between entrepreneurs and investors. Our summit serves as a
+              catalyst for groundbreaking collaborations that drive
+              technological advancement and economic growth.
             </p>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed animate-in slide-in-from-left duration-800 delay-900 hover:text-gray-800 transition-colors duration-300">
-              This year, we're expanding our focus to include sustainable technologies, digital transformation, and
-              emerging markets, ensuring that innovation serves not just business interests but also contributes to a
-              better, more sustainable future for all.
+              This year, we're expanding our focus to include sustainable
+              technologies, digital transformation, and emerging markets,
+              ensuring that innovation serves not just business interests but
+              also contributes to a better, more sustainable future for all.
             </p>
 
             {/* Key Statistics */}
             <div ref={statsRef} className="grid grid-cols-2 gap-6">
               <div className="text-center p-6 bg-gradient-to-br from-white to-orange- rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-in slide-in-from-bottom duration-800 delay-1100 group border border-orange-100">
                 <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-2 animate-in zoom-in duration-600 delay-1200 group-hover:animate-pulse">
-                  ₹{animatedStats.funding}Cr+
+                  ₹{animatedStats.funding}L+
                 </div>
                 <div className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors duration-300">
                   Total Funding Facilitated
@@ -213,12 +215,17 @@ const About = () => {
         </div>
 
         {/* Features Grid */}
-        <div ref={featuresRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div
+          ref={featuresRef}
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
           {features.map((feature, index) => (
             <div
               key={index}
               className={`bg-white rounded-lg p-6 shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg group relative ${
-                visibleFeatures[index] ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                visibleFeatures[index]
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
               }`}
               style={{
                 transitionDelay: "0ms",
@@ -226,7 +233,7 @@ const About = () => {
             >
               {/* Hover overlay with #feefd2 tint */}
               <div className="absolute inset-0 bg-yellow-100 rounded-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
-              
+
               {/* Content */}
               <div className="relative z-10">
                 <div className="text-orange-500 mb-4 inline-block p-3 rounded-lg bg-orange-50 group-hover:bg-orange-200 transition-colors duration-300">

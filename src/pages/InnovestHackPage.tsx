@@ -3,7 +3,6 @@ import Header from "../components/Header"; // Using the main Header component
 import Hero from "../components/InnovestHack/Hero";
 import About from "../components/InnovestHack/About";
 import Domains from "../components/InnovestHack/Domains";
-import Journey from "../components/InnovestHack/Journey";
 // Schedule is commented out since it's not properly exported
 // import Schedule from '../components/InnovestHack/Schedule';
 import Partners from "../components/InnovestHack/Partners";
@@ -13,6 +12,7 @@ import Registration from "../components/InnovestHack/Registration";
 import FAQ from "../components/InnovestHack/FAQ";
 import Contact from "../components/InnovestHack/Contact";
 import Footer from "../components/InnovestHack/Footer";
+import Journey from "../components/InnovestHack/Journey";
 
 const InnovestHackPage = () => {
   return (

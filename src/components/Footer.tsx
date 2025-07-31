@@ -4,71 +4,74 @@ import {
   Phone,
   MapPin,
   Linkedin,
-  Twitter,
-  Facebook,
   Instagram,
 } from "lucide-react";
 
 const Footer = () => {
   const quickLinks = [
-    { name: "About Us", href: "#about" },
     { name: "Events", href: "#events" },
-    { name: "Speakers", href: "#speakers" },
     { name: "Registration", href: "#registration" },
-    { name: "Contact", href: "#contact" },
-  ];
-
-  const eventInfo = [
-    { name: "Schedule", href: "#schedule" },
-    { name: "Venue Details", href: "#venue" },
-    { name: "Accommodation", href: "#accommodation" },
-    { name: "Travel Guide", href: "#travel" },
-    { name: "FAQ", href: "#faq" },
-  ];
-
-  const resources = [
-    { name: "Startup Guidelines", href: "#guidelines" },
-    { name: "Investor Resources", href: "#investor-resources" },
-    { name: "Media Kit", href: "#media-kit" },
-    { name: "Past Events", href: "#past-events" },
-    { name: "Testimonials", href: "#testimonials" },
+    { name: "Contact", href: "#contact" }, // Added back 'Contact' as it was in the original image
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
-          {/* Company Info */}
-          <div className="lg:col-span-1">
-            <div className="text-2xl font-bold mb-4">
+    <footer className="bg-gray-900 text-white text-sm w-full">
+      <div className="w-full px-60 py-12">
+        {/*
+          Using flexbox for the main layout to ensure proper justification of columns.
+          'justify-between' pushes items to the ends and distributes space in between.
+          'items-start' aligns items to the top of their container.
+        */}
+        <div className="flex flex-col md:flex-row justify-between items-start">
+          {/* Company Info - Left Column */}
+          <div className="flex flex-col flex-1 space-y-4 text-left pr-8"> {/* text-left for left alignment of the section */}
+            <div className="text-xl font-bold">
               INNOVEST <span className="text-orange-500">2025</span>
             </div>
-            <p className="text-gray-300 mb-6 leading-relaxed">
+            {/*
+              For text justification, `text-justify` is applied.
+              `max-w-xs` or a similar width constraint is often needed for `text-justify` to be effective.
+            */}
+            <p className="text-gray-300 leading-relaxed text-sm text-justify">
               India's premier innovation and investment summit, bringing
               together entrepreneurs, investors, and thought leaders to shape
               the future of technology and business.
             </p>
-            {/* Contact Info */}
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-orange-500" />
-                <span className="text-gray-300"></span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-orange-500" />
-                <span className="text-gray-300"></span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <MapPin className="h-5 w-5 text-orange-500" />
-                <span className="text-gray-300"></span>
-              </div>
+          </div>
+
+          {/* Contact Info - Center Column */}
+          <div className="flex flex-col flex-1 space-y-4 text-left px-8"> {/* text-left for left alignment of the section */}
+            <div className="flex items-start space-x-3">
+              <Mail className="h-5 w-5 text-orange-500 flex-shrink-0" />
+              <span className="text-gray-300">
+                citbif@citchennai.net<br />
+                citil@citchennai.net
+              </span>
+            </div>
+            <div className="flex items-start space-x-3">
+              <Phone className="h-5 w-5 text-orange-500 flex-shrink-0" />
+              <span className="text-gray-300">
+                +91 99946 91313<br />
+                +91 99424 09311
+              </span>
+            </div>
+            <div className="flex items-start space-x-3">
+              <MapPin className="h-5 w-5 text-orange-500 flex-shrink-0" />
+              <a
+                href="https://maps.app.goo.gl/9J7F92jH7X7Y2Z7J7" // Example Google Maps link
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-orange-500 transition"
+              >
+                Chennai Institute of Technology
+              </a>
             </div>
           </div>
 
-          {/* Quick Links and Social Media */}
-          <div className="lg:col-start-4">
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+          {/* Quick Links - Right Column */}
+          <div className="flex flex-col flex-1 space-y-4 text-left pl-8"> {/* text-left for left alignment of the section */}
+            <h3 className="text-base font-semibold">Quick Links</h3>
+            <ul className="space-y-3 text-sm">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <a
@@ -80,22 +83,24 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-            <div className="mt-6">
-              <h4 className="text-sm font-semibold mb-3">Follow Us</h4>
-              <div className="flex space-x-3">
+            <div>
+              <h4 className="text-base font-semibold mb-3">Follow Us</h4> {/* Changed to h4 and adjusted font size */}
+              <div className="flex space-x-4"> {/* Adjusted space-x for social icons */}
                 <a
                   href="https://www.linkedin.com/company/citbif/"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-gray-800 p-2 rounded-full hover:bg-orange-500 transition-colors duration-200"
                 >
-                  <Linkedin className="h-5 w-5" />
+                  <Linkedin className="h-4 w-4" />
                 </a>
                 <a
                   href="https://www.instagram.com/citinnovationlabs?igsh=MW9vb2RrMDU5Y2J1Zw=="
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-gray-800 p-2 rounded-full hover:bg-orange-500 transition-colors duration-200"
                 >
-                  <Instagram className="h-5 w-5" />
+                  <Instagram className="h-4 w-4" />
                 </a>
               </div>
             </div>

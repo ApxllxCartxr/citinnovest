@@ -24,42 +24,36 @@ const Prizes = () => {
       icon: Trophy,
       title: "Winner",
       description: "Grant & 1,00,000 + Trophy + Certificate",
-      color: "from-yellow-500 to-amber-500",
       rank: "🥇",
     },
     {
       icon: Medal,
       title: "Runner-Up",
       description: "Grant & 75,000 + Certificate",
-      color: "from-purple-400 to-purple-600",
       rank: "🥈",
     },
     {
       icon: Medal,
       title: "2nd Runner-Up",
       description: "Grant & 50,000 + Certificate",
-      color: "from-yellow-400 to-yellow-500",
       rank: "🥉",
     },
     {
       icon: Award,
       title: "Best Domain Innovations",
       description: "Special recognition for each domain",
-      color: "from-purple-500 to-purple-700",
       rank: "🏅",
     },
     {
       icon: Rocket,
       title: "Incubation Support",
       description: "Mentoring from StartupTN & Partners",
-      color: "from-yellow-500 to-amber-600",
       rank: "🚀",
     },
     {
       icon: GraduationCap,
       title: "Participation Certificates",
       description: "Recognition for all participants",
-      color: "from-purple-400 to-purple-600",
       rank: "🎓",
     },
   ];
@@ -98,9 +92,7 @@ const Prizes = () => {
             >
               <div className="text-center mb-6">
                 <div className="text-4xl mb-4">{prize.rank}</div>
-                <div
-                  className={`w-16 h-16 bg-gradient-to-r ${prize.color} rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
-                >
+                <div>
                   <prize.icon className="w-8 h-8 text-white" />
                 </div>
               </div>

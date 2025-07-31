@@ -3,6 +3,8 @@ import { Calendar, MapPin, Users } from 'lucide-react';
 import CountdownTimer from './CountdownTimer';
 import innovestLogo from '../img/innovest.png';
 import { motion } from 'framer-motion';
+import SectionSquares from './SectionSquares';
+import Events from './Event/Schedule';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -15,12 +17,28 @@ const fadeUp = {
 
 const Hero = () => {
   return (
-    <section id="home" className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 min-h-screen flex items-center overflow-hidden">
-      {/* Background Overlay */}
-      <div className="absolute inset-0 bg-black opacity-20"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-transparent"></div>
+    <section
+      id="home"
+      className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 h-max flex items-center overflow-hidden"
+    >
+      {/* Dot Grid Background */}
+      <div className="absolute inset-0 z-0">
+        <SectionSquares
+          direction="diagonal"
+          speed={0.1}
+          borderColor="rgba(255, 255, 255, 0.8)"
+          hoverFillColor="#F97316"
+          squareSize={50}
+          opacity={0.3}
+          className="pointer-events-none"
+        />
+      </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-black opacity-20 z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-transparent z-10"></div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <motion.div
@@ -39,7 +57,9 @@ const Hero = () => {
                 Empowering Innovation, Inspiring Excellence
               </p>
               <p className="text-lg text-blue-200 mb-8 max-w-2xl">
-                Join us for the most prestigious innovation and investment summit where groundbreaking ideas meet visionary investors. Experience the future of technology, entrepreneurship, and sustainable innovation.
+                Join us for the most prestigious innovation and investment summit where groundbreaking
+                ideas meet visionary investors. Experience the future of technology, entrepreneurship,
+                and sustainable innovation.
               </p>
             </motion.div>
 
@@ -63,19 +83,19 @@ const Hero = () => {
                 <Users className="h-6 w-6 text-orange-400" />
                 <div>
                   <p className="text-sm text-blue-200">Expected</p>
-                  <p className="font-semibold">3000+ Attendees</p>
+                  <p className="font-semibold">1500+ Attendees</p>
                 </div>
               </div>
             </motion.div>
 
-            {/* CTA */}
+            {/* CTA - Linked to Schedule */}
             <motion.div custom={3} variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <a
+                href="#schedule"
+                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+              >
                 Register Now
-              </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300">
-                Learn More
-              </button>
+              </a>
             </motion.div>
           </motion.div>
 
@@ -88,12 +108,16 @@ const Hero = () => {
             custom={4}
             className="lg:pl-12"
           >
+            {/* Heading Added */}
+            <h2 className="text-2xl font-bold text-white mb-6 text-center lg:text-center">
+              Statistics of Innovest'24
+            </h2>
             <div className="grid grid-cols-2 gap-6 mb-8">
               {[
-                { label: 'Startups', value: '65+' },
-                { label: 'Investors', value: '18+' },
-                { label: 'Speakers', value: '25+' },
-                { label: 'Funding Pool', value: '₹10L+' },
+                { label: 'Masterclass', value: '25+' },
+                { label: 'Workshops', value: '30+' },
+                { label: 'Team Registered', value: '160' },
+                { label: 'School Students', value: '1500+' },
               ].map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -118,7 +142,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20"
       >
         <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
           <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>

@@ -179,31 +179,7 @@ const About = () => {
           ))}
         </div>
 
-        <div 
-          className="mt-16 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-xl p-8 md:p-12 text-white text-center relative overflow-hidden"
-          style={{ 
-            animation: isVisible ? 'scaleIn 0.8s ease-out 0.4s forwards' : 'none',
-            opacity: 0
-          }}
-        >
-          {/* Decorative elements */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
-          
-          <Rocket className="w-12 h-12 text-white/80 mx-auto mb-4" />
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">
-            Ready to Shape the Future?
-          </h3>
-          <p className="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
-            Join fellow innovators in solving tomorrow's challenges today.
-            Transform your ideas into reality with cutting-edge technology and
-            expert guidance.
-          </p>
-          
-          <button className="mt-6 bg-white text-yellow-500 px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
-            Register Now
-          </button>
-        </div>
+       
       </div>
     </section>
   );
